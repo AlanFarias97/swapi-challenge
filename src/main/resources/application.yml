@@ -40,3 +40,6 @@ swapi:
 jwt:
     secret:  secret1359
     expiration-minutes: 60
+
+server:
+    port: ${PORT:8080}

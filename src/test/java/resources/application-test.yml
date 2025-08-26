@@ -1,0 +1,14 @@
+swapi:
+  base-url: http://localhost:0/api   # se sobreescribe en runtime por @DynamicPropertySource
+security:
+  jwt:
+    secret: this-is-a-long-test-secret-key-32b-min!
+    expiration: 3600
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  cache:
+    type: caffeine
+    cache-names: peopleList,personDetail,filmsList,filmDetail,starshipsList,starshipDetail,vehiclesList,vehicleDetail
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=10m

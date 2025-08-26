@@ -1,0 +1,23 @@
+type Query {
+  person(id: ID!): Person
+  people(name: String, page: Int = 1, size: Int = 10, id: ID): PeoplePage
+
+  film(id: ID!): Film
+  films(name: String, page: Int = 1, size: Int = 10, id: ID): FilmPage
+
+  starship(id: ID!): Starship
+  starships(name: String, page: Int = 1, size: Int = 10, id: ID): StarshipPage
+
+  vehicle(id: ID!): Vehicle
+  vehicles(name: String, page: Int = 1, size: Int = 10, id: ID): VehiclePage
+}
+
+type PeoplePage   { totalRecords: Int, totalPages: Int, results: [Person!]! }
+type FilmPage     { totalRecords: Int, totalPages: Int, results: [Film!]! }
+type StarshipPage { totalRecords: Int, totalPages: Int, results: [Starship!]! }
+type VehiclePage  { totalRecords: Int, totalPages: Int, results: [Vehicle!]! }
+
+type Person   { id: ID!, name: String!, films: [Film!], starships: [Starship!], vehicles: [Vehicle!] }
+type Film     { id: ID!, title: String, releaseDate: String }
+type Starship { id: ID!, name: String, model: String }
+type Vehicle  { id: ID!, name: String, model: String }
